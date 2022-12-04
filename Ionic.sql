@@ -198,3 +198,12 @@ order by 1 desc
 go
 
 exec SP_Consultar_Inpuestos
+--Se corrige proceso almacenado
+create proc SP_Consultar_Inpuesto
+as
+select i.*, p.idProducto from Impuestos i
+inner join Productos p on p.idProducto = i.idProducto
+order by 1 desc
+go
+
+exec SP_Consultar_Inpuesto
